@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Численные методы. Параболическое уравнение</title>
+<link rel="stylesheet" href="style.css">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+<body>
+<div id="id1">
+<p><b>Уравнение:</b></p>
+<p>
+$$\frac{\partial u}{\partial t} = a\frac{\partial^2 u}{\partial x^2} + b\frac{\partial u}{\partial x} + cu, a\gt 0,b\gt 0,c\lt 0$$
+$$u_x(0,t) + u(0,t) = \exp((c-a)t)(\cos(bt)+\sin(bt))$$
+$$u_x(\pi,t) + u(\pi,t) = -\exp((c-a)t)(\cos(bt)+\sin(bt))$$
+$$u(x,0) = \sin x$$
+</p>
+
+<div class="floatleft" style="width:100%;">
+<p><b>Параметры:</b></p>
+
+<div class="floatleft">
+<p>Метод интегрирования:</p>
+<p>
+<input type="radio" class="radio" id="radio_m1" name="radio_m" value="1" checked>
+<label for="radio_m1">Явная конечно-разностная схема</label>
+</br>
+
+<input type="radio" class="radio" id="radio_m2" name="radio_m" value="2">
+<label for="radio_m2">Неявная конечно-разностная схема</label>
+</br>
+
+<input type="radio" class="radio" id="radio_m3" name="radio_m" value="3">
+<label for="radio_m3">Схема Кранка-Никлсона</label>
+</p>
+
+<p>Метод аппроксимации:</p>
+<p>
+<input type="radio" class="radio" id="radio_a1" name="radio_a" value="4" checked>
+<label for="radio_a1">Двухточечная первого порядка</label>
+</br>
+
+<input type="radio" class="radio" id="radio_a2" name="radio_a" value="5">
+<label for="radio_a2">Трёхточечная второго порядка</label>
+</br>
+
+<input type="radio" class="radio" id="radio_a3" name="radio_a" value="6">
+<label for="radio_a3">Двухточечная второго порядка</label>
+</p>
+</div>
+
+<div class="floatleft">
+<p>a = </p>
+<p>b = </p>
+<p>c = </p>
+<p>h = </p>
+<p>&tau; = </p>
+<p>t = </p>
+<p>T = </p>
+</div>
+
+<div class="floatleft">
+<input class="text" id="input_a"></input></br>
+<input class="text" id="input_b"></input></br>
+<input class="text" id="input_c"></input></br>
+<input class="text" id="input_h"></input></br>
+<input class="text" id="input_tau"></input></br>
+<input class="text" id="input_t"></input></br>
+<input class="text" id="input_T"></input></br>
+</div>
+
+</div>
+
+<div class="floatleft">
+</br>
+<p><b>Графики:</b></p>
+
+<button onclick="run('num1d')">Одномерный график численного решения</button>
+<button onclick="run('num2d')">Двухмерный</button></br>
+<button onclick="run('true1d')">Одномерный график точного решения</button>
+<button onclick="run('true2d')">Двухмерный</button></br>
+<button onclick="run('err1d')">Одномерный график погрешности</button>
+<button onclick="run('err2d')">Двухмерный</button></br>
+<button onclick="run('errh')">График погрешности от h</button>
+<button onclick="run('errt')">От &tau;</button>
+<button onclick="run('errht')">Двухмерный</button>
+
+</div>
+</div>
+
+<div id="id2">
+<canvas id = "canvas"></canvas>
+</div>
+
+<script src = "draw.js"></script>
+<script src = "solver.js"></script>
+<script src = "frontend.js"></script>
+</body>
+</html>

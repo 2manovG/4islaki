@@ -14,8 +14,8 @@ var radio_b1 = document.getElementById("radio_b1");
 var radio_b2 = document.getElementById("radio_b2");
 
 //default values
-input_h.value = 0.1;
-input_tau.value = 0.1;
+input_h.value = 0.05;
+input_tau.value = 0.05;
 input_t.value = 0.5;
 input_T.value = 2;
 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Численные методы. Эллиптическое уравнение</title>
+<link rel="stylesheet" href="style.css">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+<body>
+<div id="id1">
+<p><b>Уравнение:</b></p>
+<p>
+$$\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = -2\frac{\partial u}{\partial x} - 2\frac{\partial u}{\partial y} - 4u$$
+$$u(0,y) = \exp(-y)\cos y$$
+$$u\left(\frac{\pi}{2},y\right) = 0$$
+$$u(x,0) = \exp(-x)\cos x$$
+$$u\left(x,\frac{\pi}{2}\right) = 0$$
+</p>
+
+<div class="floatleft" style="width:100%;">
+<p><b>Параметры:</b></p>
+
+<div class="floatleft">
+<p>Метод интегрирования:</p>
+<p>
+<input type="radio" class="radio" id="radio_m1" name="radio_m" value="1" checked>
+<label for="radio_m1">Метод простых итераций</label>
+</br>
+
+<input type="radio" class="radio" id="radio_m2" name="radio_m" value="2">
+<label for="radio_m2">Метод Зейделя</label>
+</br>
+
+<input type="radio" class="radio" id="radio_m3" name="radio_m" value="3">
+<label for="radio_m3">С верхней релаксацией</label>
+</p>
+</div>
+
+<div class="floatleft">
+<p>h<sub>x</sub> = </p>
+<p>h<sub>y</sub> = </p>
+<p>x = </p>
+<p>y = </p>
+<p>&epsilon; = </p>
+<p>&omega; = </p>
+</div>
+
+<div class="floatleft">
+<input class="text" id="input_hx"></input></br>
+<input class="text" id="input_hy"></input></br>
+<input class="text" id="input_x"></input></br>
+<input class="text" id="input_y"></input></br>
+<input class="text" id="input_eps"></input></br>
+<input class="text" id="input_omega"></input></br>
+</div>
+
+</div>
+
+<div class="floatleft">
+</br>
+<p><b>Графики:</b></p>
+
+<button onclick="run('numx')">Одномерный график численного решения по x</button>
+<button onclick="run('numy')">По y</button>
+<button onclick="run('num2d')">Двухмерный</button></br>
+<button onclick="run('truex')">Одномерный график точного решения по x</button>
+<button onclick="run('truey')">По y</button>
+<button onclick="run('true2d')">Двухмерный</button></br>
+<button onclick="run('errx')">Одномерный график погрешности по x</button>
+<button onclick="run('erry')">По y</button>
+<button onclick="run('err2d')">Двухмерный</button></br>
+<button onclick="run('errh')">График погрешности от h<sub>x</sub></button>
+<button onclick="run('errt')">От h<sub>y</sub></button>
+<button onclick="run('errht')">Двухмерный</button>
+
+</div>
+</div>
+
+<div id="id2">
+<canvas id = "canvas"></canvas>
+</div>
+
+<script src = "draw.js"></script>
+<script src = "solver.js"></script>
+<script src = "frontend.js"></script>
+</body>
+</html>

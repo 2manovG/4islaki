@@ -1,0 +1,54 @@
+* { padding: 0; margin: 0; }
+html, body {
+    min-height: 100% !important;
+    height: 100%;
+    width: 100%;
+	
+	background: #ddd
+}
+
+p {
+	padding: 3.2px;
+}
+button {
+	margin: 2px;
+	padding: 2px;
+}
+
+#id1 {
+	float: left;
+	width: calc(100% - 670px);
+	padding: 10px;
+}
+#id2 {
+	float: right;
+	width: 650px;
+}
+
+#canvas {
+	position:absolute;
+	margin: 5px;
+	background-color: #eee;
+	width: 640px;
+	height: 640px;
+}
+
+.floatleft {
+	float: left;
+	height: max-content;
+}
+.float2 {
+	float: top;
+	height: max-content;
+}
+
+.radio {
+	height: 16px;
+	width: 16px;
+	margin: 3px;
+}
+.text {
+	height: 16px;
+	width: 96px;
+	margin: 3px;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Численные методы. Параболическое уравнение 2D</title>
+<link rel="stylesheet" href="style.css">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+<body>
+<div id="id1">
+<p><b>Уравнение:</b></p>
+<p>
+$$\frac{\partial u}{\partial t} = a\frac{\partial^2 u}{\partial x^2} + b\frac{\partial^2 u}{\partial y^2} + \sin x\sin y(\mu\cos\mu t+(a+b)\sin\mu t)$$
+$$u(0,y,t) = 0, u_x(\pi,y,t) = -\sin y\sin(\mu t)$$
+$$u(x,0,t) = 0, u_y(x,\pi,t) = -\sin x\sin(\mu t)$$
+$$u(x,y,0) = 0$$
+</p>
+
+<div class="floatleft" style="width:100%;">
+<p><b>Параметры:</b></p>
+
+<div class="floatleft">
+<p>Метод интегрирования:</p>
+<p>
+<input type="radio" class="radio" id="radio_m1" name="radio_m" value="1" checked>
+<label for="radio_m1">Схема переменных направлений</label>
+</br>
+
+<input type="radio" class="radio" id="radio_m2" name="radio_m" value="2">
+<label for="radio_m2">Схема дробных шагов</label>
+</p>
+
+<p>Метод аппроксимации:</p>
+<p>
+<input type="radio" class="radio" id="radio_a1" name="radio_a" value="4" checked>
+<label for="radio_a1">Двухточечная первого порядка</label>
+</br>
+
+<input type="radio" class="radio" id="radio_a2" name="radio_a" value="5">
+<label for="radio_a2">Трёхточечная второго порядка</label>
+</p>
+</div>
+
+<div class="floatleft">
+<p>a = </p>
+<p>b = </p>
+<p>&mu; = </p>
+<p>h<sub>x</sub> = </p>
+<p>h<sub>y</sub> = </p>
+<p>&tau; = </p>
+<p>x = </p>
+<p>y = </p>
+<p>t = </p>
+<p>T = </p>
+</div>
+
+<div class="floatleft">
+<input class="text" id="input_a"></input></br>
+<input class="text" id="input_b"></input></br>
+<input class="text" id="input_mu"></input></br>
+<input class="text" id="input_hx"></input></br>
+<input class="text" id="input_hy"></input></br>
+<input class="text" id="input_tau"></input></br>
+<input class="text" id="input_x"></input></br>
+<input class="text" id="input_y"></input></br>
+<input class="text" id="input_t"></input></br>
+<input class="text" id="input_T"></input></br>
+</div>
+
+</div>
+
+<div class="floatleft">
+</br>
+<p><b>Графики:</b></p>
+
+<button onclick="run('numxy')">Двухмерный график численного решения по xy</button>
+<button onclick="run('numxt')">по xt</button>
+<button onclick="run('numyt')">по yt</button></br>
+<button onclick="run('truexy')">Двухмерный график точного решения по xy</button>
+<button onclick="run('truext')">по xt</button>
+<button onclick="run('trueyt')">по yt</button></br>
+<button onclick="run('errxy')">Двухмерный график погрешности по xy</button>
+<button onclick="run('errxt')">по xt</button>
+<button onclick="run('erryt')">по yt</button></br>
+<button onclick="run('errhx')">График погрешности по h<sub>x</sub></button>
+<button onclick="run('errhy')">по h<sub>y</sub></button>
+<button onclick="run('errt')">по &tau;</button>
+
+</div>
+</div>
+
+<div id="id2">
+<canvas id = "canvas"></canvas>
+</div>
+
+<script src = "draw.js"></script>
+<script src = "solver.js"></script>
+<script src = "frontend.js"></script>
+</body>
+</html>
